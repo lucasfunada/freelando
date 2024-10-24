@@ -4,26 +4,27 @@ const tema = {
     cores: {
         branco: '#FFF',
         atencao: '',
-        focus: '#B009FF',
+        focus: '#B009FF', //roxo
         primarias: {
-            a: '#5754ED',
-            b: '#D93114',
-            c: ''
+            a: '#5754ED', //azul
+            b: '#D93114', //vermelho
+            c: '#168070'  //verde
         },
         secundarias: {
-            a: '#F8F8FD',
-            b: '',
-            c: ''
+            a: '#F8F8FD', //cinza quase branco
+            b: '#EBEAF9', 
+            c: '#EBFCF9'  //verde claro
+            
         },
         neutras: {
-            a: '#373737',
-            b: '',
+            a: '#373737', //cinza escuro
+            b: '#F5F5F5', //cinza bem claro
             c: '',
             d: ''
         },
         dark: {
             a: '',
-            b: '#B61B00'
+            b: '#B61B00' //vermelhor
         }
     },
     espacamentos: {
