@@ -1,21 +1,33 @@
-import { createContext } from "react";
+import axios from "axios";
+import { createContext, useContext } from "react";
+import http from "../http";
 
 const SessaoUsuarioContext = createContext({
     usuarioEstaLogado: false,
-    login: () => null,
+    login: (email, senha) => null,
     logout: () => null,
     perfil: {}
 })
 
 export const useSessaoUsuarioContext = () => {
-    return useContext(SessaoUsuarioContext);
+    return useContext(SessaoUsuarioContext)
 }
 
-export const SessaoUsuarioProvider = () => {
-    const value = {};
+export const SessaoUsuarioProvider = ({ children }) => {
+
+    const login = (email, senha) => {
+        http.post("auth/login", {
+            email,
+            senha
+        })
+            .then(resposta => console.log(resposta))
+            .catch(erro => console.error(erro))
+    }
+
+    const value = { login };
     return (
-    <SessaoUsuarioContext.Provider value={value}>
-        {children}
-    </SessaoUsuarioContext.Provider>
+        <SessaoUsuarioContext.Provider value={value}>
+            {children}
+        </SessaoUsuarioContext.Provider>
     )
 }

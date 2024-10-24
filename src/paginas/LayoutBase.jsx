@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-grid-system";
 import { Cabecalho } from "../componentes/Cabecalho/Cabecalho";
 import { FreelandoLogo } from "../componentes/Icones/FreelandoLogo";
 import { Link } from "../componentes/Link/Link";
+import { Link as RouterLink } from "react-router-dom"
 import { Rodape } from "../componentes/Rodape/Rodape";
 import { Tipografia } from "../componentes/Tipografia/Tipografia";
 import { ListaInline } from "../componentes/Lista/ListaInline";
@@ -12,7 +13,7 @@ import { IconeInstagram } from "../componentes/Icones/IconeInstagram";
 import { IconeTwitter } from "../componentes/Icones/IconeTwitter";
 import { Outlet } from "react-router-dom";
 
-const LayoutBase = () => {
+const LayoutBase = ({ children }) => {
     return (
         <>
             <Cabecalho>
@@ -22,13 +23,16 @@ const LayoutBase = () => {
                             <FreelandoLogo />
                         </Col>
                         <Col style={{ textAlign: 'right' }}>
-                            <Link>Login</Link>
+                            <RouterLink to="login">
+                                <Link>Login</Link>
+                            </RouterLink>
                         </Col>
                     </Row>
                 </Container>
             </Cabecalho>
             <Container>
                 <Outlet />
+                {children}
             </Container>
             <Rodape>
                 <Container>

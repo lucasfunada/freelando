@@ -1,19 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-import SelecaoCliente from "../paginas/cadastro/SelecaoCliente";
-import Interesses from "../paginas/cadastro/Interesses";
-import LayoutBaseCadastro from "../paginas/cadastro/LayoutBaseCadastro";
-import LayoutBase from "../paginas/LayoutBase";
-import DadosPessoais from "../paginas/cadastro/DadosPessoais";
-import Concluido from "../paginas/cadastro/Concluido";
-import PaginaInicial from "../paginas/inicial/PaginaInicial";
+import SelecaoCliente from "../paginas/cadastro/SelecaoCliente.jsx";
+import Interesses from "../paginas/cadastro/Interesses.jsx";
+import LayoutBaseCadastro from "../paginas/cadastro/LayoutBaseCadastro.jsx";
+import LayoutBase from "../paginas/LayoutBase.jsx";
+import DadosPessoais from "../paginas/cadastro/DadosPessoais.jsx";
+import Concluido from "../paginas/cadastro/Concluido.jsx";
+import PaginaInicial from "../paginas/inicial/PaginaInicial.jsx";
+import Pagina404 from "../paginas/erro/Pagina404.jsx"
+import Login from "../paginas/login/Login.jsx";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <LayoutBase />,
+        ErrorBoundary: Pagina404,
         children: [
             {
-                path:"",
+                path: "",
                 element: <PaginaInicial />,
             },
             {
@@ -37,7 +40,11 @@ export const router = createBrowserRouter([
                         element: <Concluido />,
                     }
                 ]
-            }
+            },
+            {
+                path: "login",
+                element: <Login />,
+            },
         ],
     },
 ]);
